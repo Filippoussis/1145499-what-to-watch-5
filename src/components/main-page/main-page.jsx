@@ -6,7 +6,7 @@ const MainPage = (props) => {
   const {title, genre, release} = props;
 
   return (
-    <React.Fragment>
+    <>
       <section className="movie-card">
         <div className="movie-card__bg">
           <img src="img/bg-the-grand-budapest-hotel.jpg" alt="The Grand Budapest Hotel" />
@@ -301,7 +301,7 @@ const MainPage = (props) => {
         </footer>
       </div>
 
-    </React.Fragment>
+    </>
   );
 };
 
