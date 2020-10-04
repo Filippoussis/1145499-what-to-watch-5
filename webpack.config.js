@@ -8,8 +8,9 @@ module.exports = {
   },
   devServer: {
     contentBase: path.resolve(__dirname, 'public'),
-    open: false,
+    open: true,
     port: 1337,
+    historyApiFallback: true
   },
   module: {
     rules: [
@@ -23,7 +24,10 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: ['.js', '.jsx']
+    extensions: ['.js', '.jsx'],
+    alias: {
+      components: path.resolve(__dirname, 'src/components/'),
+    }
   },
   devtool: 'source-map',
 };
