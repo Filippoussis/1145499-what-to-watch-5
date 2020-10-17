@@ -12,7 +12,7 @@ export default [
     time: `2h 44min`,
     poster: `bladerunner2049-poster`,
     preview: `bladerunner2049-preview`,
-    trailer: `https://www.youtube.com/embed/JUgbntoMyW8`,
+    trailer: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
   }, {
     title: `Mad Max: Fury Road`,
     genre: [`Sci-Fi`, `Fantasy`, `Action`, `Adventure`],
@@ -28,7 +28,7 @@ export default [
     time: `2h`,
     poster: `madmax-poster`,
     preview: `madmax-preview`,
-    trailer: `https://www.youtube.com/embed/YWNWi-ZWL3c`,
+    trailer: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
   }, {
     title: `Dunkirk`,
     genre: [`Action`, `Drama`, `History`],
@@ -40,7 +40,7 @@ export default [
     time: `1h 46min`,
     poster: `dunkirk-poster`,
     preview: `dunkirk-preview`,
-    trailer: `https://www.youtube.com/embed/kvbiVcj4l0c`,
+    trailer: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
   }, {
     title: `Ready Player One`,
     genre: [`Sci-Fi`, `Fantasy`, `Action`, `Adventure`],
@@ -57,7 +57,7 @@ export default [
     time: `2h 20min`,
     poster: `ready-player-one-poster`,
     preview: `ready-player-one-preview`,
-    trailer: `https://www.youtube.com/embed/cSp1dM2Vj48`,
+    trailer: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
   }, {
     title: `A Star Is Born`,
     genre: [`Drama`, `Music`, `Romance`],
@@ -71,7 +71,7 @@ export default [
     time: `2h 16min`,
     poster: `a-star-is-born-poster`,
     preview: `a-star-is-born-preview`,
-    trailer: `https://www.youtube.com/embed/9b2exuHICRo`,
+    trailer: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
   }, {
     title: `Smallfoot`,
     genre: [`Animation`, `Comedy`, `Family`],
@@ -86,7 +86,7 @@ export default [
     time: `1h 36min`,
     poster: `smallfoot-poster`,
     preview: `smallfoot-preview`,
-    trailer: `https://www.youtube.com/embed/_r9GPgvN8As`,
+    trailer: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
   }, {
     title: `King Arthur: Legend of the Sword`,
     genre: [`Action`, `Adventure`, `Drama`],
@@ -102,7 +102,7 @@ export default [
     time: `2h 6min`,
     poster: `king-arthur-poster`,
     preview: `king-arthur-preview`,
-    trailer: `https://www.youtube.com/embed/SX9y5JPuRHY`,
+    trailer: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
   }, {
     title: `Tomb Raider`,
     genre: [`Action`, `Adventure`, `Fantasy`],
@@ -118,6 +118,6 @@ export default [
     time: `1h 59min`,
     poster: `tomb-raider-poster`,
     preview: `tomb-raider-preview`,
-    trailer: `https://www.youtube.com/embed/8ndhidEmUbI`,
+    trailer: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
   },
 ];
