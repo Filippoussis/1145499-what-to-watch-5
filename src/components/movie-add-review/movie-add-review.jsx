@@ -1,4 +1,3 @@
-import React from "react";
 import {Link} from "react-router-dom";
 import FormAddReview from "@components/form-add-review/form-add-review";
 

@@ -1,9 +1,7 @@
-import React, {PureComponent} from "react";
-import ReactPlayer from "react-player";
 import {Link} from "react-router-dom";
-import PropTypes from "prop-types";
+import PreviewVideoPlayer from "@components/preview-video-player/preview-video-player";
 
-class SmallMovieCard extends PureComponent {
+export default class SmallMovieCard extends React.PureComponent {
   constructor(props) {
     super(props);
 
@@ -16,12 +14,15 @@ class SmallMovieCard extends PureComponent {
   }
 
   _handleMouseEnter() {
-    this.setState((state) => ({
-      isActive: !state.isActive
-    }));
+    this.timerId = setTimeout(() => this._changeState(), 1000);
   }
 
   _handleMouseLeave() {
+    clearInterval(this.timerID);
+    this._changeState();
+  }
+
+  _changeState() {
     this.setState((state) => ({
       isActive: !state.isActive
     }));
@@ -44,20 +45,18 @@ class SmallMovieCard extends PureComponent {
         onMouseLeave={this._handleMouseLeave}
         onClick={onCardClick}
       >
-        {isActive ? <ReactPlayer url={trailer} width={280} height={175} muted={true} loop={true}
-          config={{
-            youtube: {
-              playerVars: {autoplay: 1}
-            },
-          }}/> :
+        {isActive ? (
+          <PreviewVideoPlayer src={trailer} />) : (
           <>
             <div className="small-movie-card__image">
               <img src={`img/${preview}.jpg`} alt={title} width="280" height="175" />
             </div>
-          </>}
-        <h3 className="small-movie-card__title">
-          <Link to="/films/:id" className="small-movie-card__link">{title}</Link>
-        </h3>
+            <h3 className="small-movie-card__title">
+              <Link to="/films/:id" className="small-movie-card__link">{title}</Link>
+            </h3>
+          </>
+        )}
+
       </article>
     );
   }
@@ -78,5 +77,3 @@ SmallMovieCard.propTypes = {
   }).isRequired,
   onCardClick: PropTypes.func.isRequired,
 };
-
-export default SmallMovieCard;

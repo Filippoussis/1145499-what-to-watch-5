@@ -1,5 +1,3 @@
-import React from "react";
-import PropTypes from "prop-types";
 import MoviesList from "@components/movies-list/movies-list";
 
 const MainPage = (props) => {
@@ -130,10 +128,21 @@ MainPage.propTypes = {
   title: PropTypes.string.isRequired,
   genre: PropTypes.string.isRequired,
   release: PropTypes.string.isRequired,
-  films: PropTypes.array.isRequired,
   onAvatarClick: PropTypes.func.isRequired,
   onPlayButtonClick: PropTypes.func.isRequired,
   onCardClick: PropTypes.func.isRequired,
+  films: PropTypes.arrayOf(PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    genre: PropTypes.array.isRequired,
+    release: PropTypes.string.isRequired,
+    about: PropTypes.string.isRequired,
+    director: PropTypes.string.isRequired,
+    stars: PropTypes.array.isRequired,
+    time: PropTypes.string.isRequired,
+    poster: PropTypes.string.isRequired,
+    preview: PropTypes.string.isRequired,
+    trailer: PropTypes.string.isRequired,
+  })).isRequired,
 };
 
 export default MainPage;
