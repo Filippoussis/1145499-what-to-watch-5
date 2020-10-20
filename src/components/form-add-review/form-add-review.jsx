@@ -1,6 +1,4 @@
-import React, {PureComponent} from "react";
-
-class FormAddReview extends PureComponent {
+export default class FormAddReview extends React.PureComponent {
 
   constructor(props) {
     super(props);
@@ -56,5 +54,3 @@ class FormAddReview extends PureComponent {
     );
   }
 }
-
-export default FormAddReview;

@@ -1,9 +1,7 @@
-import React, {PureComponent} from "react";
-import ReactPlayer from "react-player";
 import {Link} from "react-router-dom";
-import PropTypes from "prop-types";
+import PreviewVideoPlayer from "@components/preview-video-player/preview-video-player";
 
-class SmallMovieCard extends PureComponent {
+export default class SmallMovieCard extends React.PureComponent {
   constructor(props) {
     super(props);
 
@@ -16,21 +14,27 @@ class SmallMovieCard extends PureComponent {
   }
 
   _handleMouseEnter() {
-    this.setState((state) => ({
-      isActive: !state.isActive
-    }));
+    this.timerId = setTimeout(() => this.setState({
+      isActive: true
+    }), 1000);
   }
 
   _handleMouseLeave() {
-    this.setState((state) => ({
-      isActive: !state.isActive
-    }));
+    clearInterval(this.timerId);
+    this.setState({
+      isActive: false
+    });
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timerId);
   }
 
   render() {
-    const {film, onCardClick} = this.props;
+    const {film} = this.props;
 
     const {
+      id,
       title,
       preview,
       trailer
@@ -42,22 +46,21 @@ class SmallMovieCard extends PureComponent {
       <article className="small-movie-card catalog__movies-card"
         onMouseEnter={this._handleMouseEnter}
         onMouseLeave={this._handleMouseLeave}
-        onClick={onCardClick}
       >
-        {isActive ? <ReactPlayer url={trailer} width={280} height={175} muted={true} loop={true}
-          config={{
-            youtube: {
-              playerVars: {autoplay: 1}
-            },
-          }}/> :
-          <>
+        {isActive ? (
+          <PreviewVideoPlayer src={trailer} />) : (
+
+          <Link to={`/films/:${id}`}>
             <div className="small-movie-card__image">
               <img src={`img/${preview}.jpg`} alt={title} width="280" height="175" />
             </div>
-          </>}
+          </Link>
+        )}
+
         <h3 className="small-movie-card__title">
-          <Link to="/films/:id" className="small-movie-card__link">{title}</Link>
+          <Link to={`/films/:${id}`} className="small-movie-card__link">{title}</Link>
         </h3>
+
       </article>
     );
   }
@@ -65,6 +68,7 @@ class SmallMovieCard extends PureComponent {
 
 SmallMovieCard.propTypes = {
   film: PropTypes.shape({
+    id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     genre: PropTypes.array.isRequired,
     release: PropTypes.string.isRequired,
@@ -76,7 +80,4 @@ SmallMovieCard.propTypes = {
     preview: PropTypes.string.isRequired,
     trailer: PropTypes.string.isRequired,
   }).isRequired,
-  onCardClick: PropTypes.func.isRequired,
 };
-
-export default SmallMovieCard;
