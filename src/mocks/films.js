@@ -1,5 +1,6 @@
 export default [
   {
+    id: `1`,
     title: `Blade Runner 2049`,
     genre: [`Sci-Fi`, `Fantasy`, `Suspense`, `Thriller`],
     release: `2017`,
@@ -14,6 +15,7 @@ export default [
     preview: `bladerunner2049-preview`,
     trailer: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
   }, {
+    id: `2`,
     title: `Mad Max: Fury Road`,
     genre: [`Sci-Fi`, `Fantasy`, `Action`, `Adventure`],
     release: `2015`,
@@ -30,6 +32,7 @@ export default [
     preview: `madmax-preview`,
     trailer: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
   }, {
+    id: `3`,
     title: `Dunkirk`,
     genre: [`Action`, `Drama`, `History`],
     release: `2017`,
@@ -42,6 +45,7 @@ export default [
     preview: `dunkirk-preview`,
     trailer: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
   }, {
+    id: `4`,
     title: `Ready Player One`,
     genre: [`Sci-Fi`, `Fantasy`, `Action`, `Adventure`],
     release: `2018`,
@@ -59,6 +63,7 @@ export default [
     preview: `ready-player-one-preview`,
     trailer: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
   }, {
+    id: `5`,
     title: `A Star Is Born`,
     genre: [`Drama`, `Music`, `Romance`],
     release: `2018`,
@@ -73,6 +78,7 @@ export default [
     preview: `a-star-is-born-preview`,
     trailer: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
   }, {
+    id: `6`,
     title: `Smallfoot`,
     genre: [`Animation`, `Comedy`, `Family`],
     release: `2018`,
@@ -88,6 +94,7 @@ export default [
     preview: `smallfoot-preview`,
     trailer: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
   }, {
+    id: `7`,
     title: `King Arthur: Legend of the Sword`,
     genre: [`Action`, `Adventure`, `Drama`],
     release: `2018`,
@@ -104,6 +111,7 @@ export default [
     preview: `king-arthur-preview`,
     trailer: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
   }, {
+    id: `8`,
     title: `Tomb Raider`,
     genre: [`Action`, `Adventure`, `Fantasy`],
     release: `2018`,
