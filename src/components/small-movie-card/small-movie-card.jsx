@@ -14,24 +14,27 @@ export default class SmallMovieCard extends React.PureComponent {
   }
 
   _handleMouseEnter() {
-    this.timerId = setTimeout(() => this._changeState(), 1000);
+    this.timerId = setTimeout(() => this.setState({
+      isActive: true
+    }), 1000);
   }
 
   _handleMouseLeave() {
-    clearInterval(this.timerID);
-    this._changeState();
+    clearInterval(this.timerId);
+    this.setState({
+      isActive: false
+    });
   }
 
-  _changeState() {
-    this.setState((state) => ({
-      isActive: !state.isActive
-    }));
+  componentWillUnmount() {
+    clearInterval(this.timerId);
   }
 
   render() {
-    const {film, onCardClick} = this.props;
+    const {film} = this.props;
 
     const {
+      id,
       title,
       preview,
       trailer
@@ -43,19 +46,20 @@ export default class SmallMovieCard extends React.PureComponent {
       <article className="small-movie-card catalog__movies-card"
         onMouseEnter={this._handleMouseEnter}
         onMouseLeave={this._handleMouseLeave}
-        onClick={onCardClick}
       >
         {isActive ? (
           <PreviewVideoPlayer src={trailer} />) : (
-          <>
+
+          <Link to={`/films/:${id}`}>
             <div className="small-movie-card__image">
               <img src={`img/${preview}.jpg`} alt={title} width="280" height="175" />
             </div>
-            <h3 className="small-movie-card__title">
-              <Link to="/films/:id" className="small-movie-card__link">{title}</Link>
-            </h3>
-          </>
+          </Link>
         )}
+
+        <h3 className="small-movie-card__title">
+          <Link to={`/films/:${id}`} className="small-movie-card__link">{title}</Link>
+        </h3>
 
       </article>
     );
@@ -64,6 +68,7 @@ export default class SmallMovieCard extends React.PureComponent {
 
 SmallMovieCard.propTypes = {
   film: PropTypes.shape({
+    id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     genre: PropTypes.array.isRequired,
     release: PropTypes.string.isRequired,
@@ -75,5 +80,4 @@ SmallMovieCard.propTypes = {
     preview: PropTypes.string.isRequired,
     trailer: PropTypes.string.isRequired,
   }).isRequired,
-  onCardClick: PropTypes.func.isRequired,
 };

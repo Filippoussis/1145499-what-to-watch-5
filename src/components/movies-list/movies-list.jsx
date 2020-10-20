@@ -2,12 +2,12 @@ import SmallMovieCard from "@components/small-movie-card/small-movie-card";
 
 const MoviesList = (props) => {
 
-  const {films, onCardClick} = props;
+  const {films} = props;
 
   return (
     <div className="catalog__movies-list">
       {films.map((film) => (
-        <SmallMovieCard film={film} key={film.title} onCardClick={onCardClick} />
+        <SmallMovieCard film={film} key={film.title} />
       ))}
     </div>
   );
@@ -15,6 +15,7 @@ const MoviesList = (props) => {
 
 MoviesList.propTypes = {
   films: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     genre: PropTypes.array.isRequired,
     release: PropTypes.string.isRequired,
@@ -26,7 +27,6 @@ MoviesList.propTypes = {
     preview: PropTypes.string.isRequired,
     trailer: PropTypes.string.isRequired,
   })).isRequired,
-  onCardClick: PropTypes.func.isRequired,
 };
 
 export default MoviesList;

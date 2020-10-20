@@ -20,7 +20,6 @@ const App = (props) => {
             <MainPage
               onAvatarClick={() => history.push(`/mylist`)}
               onPlayButtonClick={() => history.push(`/player/:id`)}
-              onCardClick={() => history.push(`/films/:id`)}
               title={title}
               genre={genre}
               release={release}
@@ -60,6 +59,7 @@ App.propTypes = {
   genre: PropTypes.string.isRequired,
   release: PropTypes.string.isRequired,
   films: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     genre: PropTypes.array.isRequired,
     release: PropTypes.string.isRequired,
