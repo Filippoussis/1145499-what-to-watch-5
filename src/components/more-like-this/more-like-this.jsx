@@ -7,7 +7,8 @@ import filmProp from '../../props/film';
 const MoreLikeThis = (props) => {
 
   const {film} = props;
-  const similarFourFilms = films.filter(({genre}) => genre === film.genre).slice(0, 4);
+  const NUMBER_SIMILAR_FILMS = 4;
+  const similarFourFilms = films.filter(({genre}) => genre === film.genre).slice(0, NUMBER_SIMILAR_FILMS);
 
   return (
     <section className="catalog catalog--like-this">
