@@ -1,7 +1,11 @@
 import {Link} from "react-router-dom";
 import PreviewVideoPlayer from "@components/preview-video-player/preview-video-player";
 
-export default class SmallMovieCard extends React.PureComponent {
+import {withRouter} from 'react-router-dom';
+
+import filmProp from '../../props/film';
+
+class SmallMovieCard extends React.PureComponent {
   constructor(props) {
     super(props);
 
@@ -9,14 +13,17 @@ export default class SmallMovieCard extends React.PureComponent {
       isActive: false
     };
 
+    this._handleMouseClick = this._handleMouseClick.bind(this);
     this._handleMouseEnter = this._handleMouseEnter.bind(this);
     this._handleMouseLeave = this._handleMouseLeave.bind(this);
   }
 
   _handleMouseEnter() {
+    const {time} = this.props;
+
     this.timerId = setTimeout(() => this.setState({
       isActive: true
-    }), 1000);
+    }), time);
   }
 
   _handleMouseLeave() {
@@ -26,58 +33,49 @@ export default class SmallMovieCard extends React.PureComponent {
     });
   }
 
+  _handleMouseClick() {
+    const {id} = this.props.film;
+    const {history} = this.props;
+    history.push(`/films/${id}`);
+  }
+
   componentWillUnmount() {
     clearInterval(this.timerId);
   }
 
   render() {
-    const {film} = this.props;
-
-    const {
-      id,
-      title,
-      preview,
-      trailer
-    } = film;
-
+    const {id, title, preview, trailer} = this.props.film;
     const {isActive} = this.state;
 
     return (
-      <article className="small-movie-card catalog__movies-card"
+      <article
+        className="small-movie-card catalog__movies-card"
         onMouseEnter={this._handleMouseEnter}
         onMouseLeave={this._handleMouseLeave}
+        onClick={this._handleMouseClick}
       >
         {isActive ? (
           <PreviewVideoPlayer src={trailer} />) : (
-
-          <Link to={`/films/:${id}`}>
-            <div className="small-movie-card__image">
-              <img src={`img/${preview}.jpg`} alt={title} width="280" height="175" />
-            </div>
-          </Link>
+          <div className="small-movie-card__image">
+            <img src={`img/${preview}.jpg`} alt={title} width="280" height="175" />
+          </div>
         )}
-
         <h3 className="small-movie-card__title">
-          <Link to={`/films/:${id}`} className="small-movie-card__link">{title}</Link>
+          <Link to={`/films/${id}`} className="small-movie-card__link">{title}</Link>
         </h3>
-
       </article>
     );
   }
 }
 
-SmallMovieCard.propTypes = {
-  film: PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    genre: PropTypes.array.isRequired,
-    release: PropTypes.string.isRequired,
-    about: PropTypes.string.isRequired,
-    director: PropTypes.string.isRequired,
-    stars: PropTypes.array.isRequired,
-    time: PropTypes.string.isRequired,
-    poster: PropTypes.string.isRequired,
-    preview: PropTypes.string.isRequired,
-    trailer: PropTypes.string.isRequired,
-  }).isRequired,
+SmallMovieCard.defaultProps = {
+  time: 1000
 };
+
+SmallMovieCard.propTypes = {
+  film: filmProp,
+  time: PropTypes.number,
+  history: PropTypes.object,
+};
+
+export default withRouter(SmallMovieCard);

@@ -1,10 +1,12 @@
-import {Switch, Route, BrowserRouter} from "react-router-dom";
+import {Switch, Route, BrowserRouter, Redirect} from "react-router-dom";
 import MainPage from "@components/main-page/main-page";
 import SignInScreen from "@components/sign-in-screen/sign-in-screen";
 import MyListScreen from "@components/my-list-screen/my-list-screen";
 import PlayerScreen from "@components/player-screen/player-screen";
 import MoviePage from "@components/movie-page/movie-page";
 import MovieAddReview from "@components/movie-add-review/movie-add-review";
+
+import filmsProp from '../../props/films';
 
 const App = (props) => {
 
@@ -41,12 +43,21 @@ const App = (props) => {
           )}
         />
 
+        <Route
+          exact
+          path="/films/:id"
+          render={({match}) => {
+            const {id} = match.params;
+            const film = films.find((item) => item.id === id);
+            return <MoviePage film={film} />;
+          }} />
+
         <Route exact path="/films/:id/review">
           <MovieAddReview />
         </Route>
 
-        <Route exact path="/films/:id">
-          <MoviePage />
+        <Route>
+          <Redirect to="/" />
         </Route>
 
       </Switch>
@@ -58,19 +69,7 @@ App.propTypes = {
   title: PropTypes.string.isRequired,
   genre: PropTypes.string.isRequired,
   release: PropTypes.string.isRequired,
-  films: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    genre: PropTypes.array.isRequired,
-    release: PropTypes.string.isRequired,
-    about: PropTypes.string.isRequired,
-    director: PropTypes.string.isRequired,
-    stars: PropTypes.array.isRequired,
-    time: PropTypes.string.isRequired,
-    poster: PropTypes.string.isRequired,
-    preview: PropTypes.string.isRequired,
-    trailer: PropTypes.string.isRequired,
-  })).isRequired,
+  films: filmsProp,
 };
 
 export default App;
