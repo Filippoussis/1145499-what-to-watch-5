@@ -25,7 +25,6 @@ const App = (props) => {
               title={title}
               genre={genre}
               release={release}
-              films={films}
             />
           )}
         />
