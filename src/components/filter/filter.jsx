@@ -9,7 +9,7 @@ const GENRES = [
   `Romance`,
   `Sci-Fi`,
   `Thrillers`
-]
+];
 
 const Filter = (props) => {
 
@@ -34,7 +34,12 @@ const Filter = (props) => {
     <ul className="catalog__genres-list">
       {filterItems}
     </ul>
-  )
+  );
+};
+
+Filter.propTypes = {
+  selectedFilter: PropTypes.string.isRequired,
+  onFilterClick: PropTypes.func.isRequired,
 };
 
 export default Filter;

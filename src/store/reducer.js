@@ -2,10 +2,8 @@ import films from "../mocks/films";
 
 const initialState = {
   films,
-  genre: 'All genres',
-  step: 4
-
-}
+  genre: `All genres`,
+};
 
 const reducer = (state = initialState, action) => {
   if (action.type === `FILTER`) {

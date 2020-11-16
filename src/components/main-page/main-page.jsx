@@ -1,7 +1,7 @@
 import {Component} from "react";
 import {connect} from "react-redux";
 
-import {filter} from '../../store/actions'
+import {filter} from '../../store/actions';
 
 import MoviesList from "@components/movies-list/movies-list";
 import PageFooter from "@components/page-footer/page-footer";
@@ -17,8 +17,8 @@ class MainPage extends Component {
     this.onFilterClick = this.onFilterClick.bind(this);
   }
 
-  onFilterClick(filter) {
-    this.props.onSetFilter(filter);
+  onFilterClick(filterName) {
+    this.props.onSetFilter(filterName);
   }
 
   render() {
@@ -100,8 +100,8 @@ class MainPage extends Component {
 
       </>
     );
-  };
-};
+  }
+}
 
 MainPage.propTypes = {
   title: PropTypes.string.isRequired,
@@ -110,6 +110,7 @@ MainPage.propTypes = {
   onAvatarClick: PropTypes.func.isRequired,
   onPlayButtonClick: PropTypes.func.isRequired,
   films: filmsProp,
+  onSetFilter: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
