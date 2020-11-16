@@ -6,8 +6,8 @@ import {withRouter} from 'react-router-dom';
 import filmProp from '../../props/film';
 
 class SmallMovieCard extends React.PureComponent {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
 
     this.state = {
       isActive: false
